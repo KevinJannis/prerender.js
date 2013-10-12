@@ -4,16 +4,19 @@
     <title>prerender.js</title>
   </head>
   <body>
-    <ul>
+    <ul id="menu">
       <li><a href="sub/page-1.html">Page 1</a></li>
       <li><a href="sub/page-2.html">Page 2</a></li>
-      <p class="prerendered" href="sub/page-2.html" onClick="window.location.href='sub/page-2.html';">This is a paragraph with a href attribute.</p>
     </ul>
+
+    <div id="container">
+      <p class="prerendered" href="sub/page-2.html" onClick="window.location.href='sub/page-2.html';">This is a paragraph with a href attribute.</p>
+    </div>
 
     <script src="../lib/prerender.js"></script>
     <script>
       var opts = {
-        selector: ['a', '.prerendered']
+        selector: ['#menu', '#container']
       };
       new PreRender(opts);
     </script>
