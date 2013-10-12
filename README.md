@@ -21,7 +21,7 @@ In case you have not included jQuery in your website, or just don't want to use 
 
     <script>
       var opts = {
-        selector: ['a', '.prerendered']
+        selector: ['#menu']
       };
       new PreRender(opts);
     </script>
@@ -31,7 +31,7 @@ If you have jQuery included, then use the following code to set the plugin to wo
 
     <script>
       var opts = {
-        selector: ['a', '.prerendered']
+        selector: ['#menu']
       };
 
       $(function() {
@@ -40,27 +40,34 @@ If you have jQuery included, then use the following code to set the plugin to wo
     </script>
 
 ##Options
-Currently there is only one parameter you can customize: selector.
-This parameter should be a string or and array of the different elements you would like to preload.
-Please note that the element should have a `href` attribute for the plugin to work.
+Currently there is only one option you can customize: `selector`.
 
-    <ul>
+With the `selector` options you can listen on different elements in the DOM.
+`prerender.js` will watch the children of these elements and prerender the url specified in the `href` attribute when a user hovers over the child.
+
+You only need to setup the script once and newly added childs in these containers will be automatically picked up and watched.
+
+    <ul id="menu">
       <li><a href="sub/page-1.html">Page 1</a></li>
       <li><a href="sub/page-2.html">Page 2</a></li>
-      <p class="prerendered" href="sub/page-2.html" onClick="window.location.href='sub/page-2.html';">This is a paragraph with a href attribute.</p>
     </ul>
+    <div id="container">
+      <p class="prerendered" href="sub/page-2.html" onClick="window.location.href='sub/page-2.html';">This is a paragraph with a href attribute.</p>
+    </div>
 
-In order to select these tags, use the following (avoid attribute selectors, since they impact performance)
+In order to prerender this example, use the following (avoid attribute selectors, since they impact performance)
 
     <script>
       var opts = {
-        selector: ['a', '.prerendered']
+        selector: ['#menu', '#container']
       };
     </script>
 or
 
     <script>
       var opts = {
-        selector: 'a, .prerendered'
+        selector: '#menu, #container'
       };
     </script>
+
+Now whenever you add new elements with a `href` attribute, to `#menu` or `#container`, they will automatically be prerendered.
