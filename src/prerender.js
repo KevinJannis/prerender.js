@@ -70,8 +70,12 @@
 
   window[defaults.name] = PreRender;
 
-  if (window.jQuery || window.$) {
+  if (window.jQuery) {
     window.jQuery[defaults.name.toLowerCase()] = function(opts) {
+      new PreRender(opts);
+    };
+  } else if (window.$) {
+    window.$[defaults.name.toLowerCase()] = function(opts) {
       new PreRender(opts);
     };
   }
