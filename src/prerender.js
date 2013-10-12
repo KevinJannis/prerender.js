@@ -66,9 +66,9 @@
     }
   };
 
+  window[defaults.name] = PreRender;
+
   if (window.jQuery || window.$) {
     window.jQuery[defaults.name] = PreRender;
-  } else {
-    window[defaults.name] = PreRender;
   }
 })();
