@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>prerender.js</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="sub/page-1.html">Page 1</a></li>
+      <li><a href="sub/page-2.html">Page 2</a></li>
+      <p class="prerendered" href="sub/page-2.html" onClick="window.location.href='sub/page-2.html';">This is a paragraph with a href attribute.</p>
+    </ul>
+
+    <script src="../lib/prerender.js"></script>
+    <script>
+      var opts = {
+        selector: ['a', '.prerendered']
+      };
+      new PreRender(opts);
+    </script>
+  </body>
+</html>
