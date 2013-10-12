@@ -47,7 +47,7 @@
       }
     },
 
-    prerender: function(href) { console.log('yeah: ' + href);
+    prerender: function(href) {
       this.remove();
 
       if (href) {
@@ -67,6 +67,8 @@
   window[defaults.name] = PreRender;
 
   if (window.jQuery || window.$) {
-    window.jQuery[defaults.name.toLowerCase()] = PreRender;
+    window.jQuery[defaults.name.toLowerCase()] = function(opts) {
+      new PreRender(opts);
+    };
   }
 })();
