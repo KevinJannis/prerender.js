@@ -24,8 +24,6 @@
       linkId: defaults.name.toLowerCase()
     };
 
-    console.log(options);
-
     if (Array.isArray && Array.isArray(options.selector)
        || options.selector instanceof Array) {
       options.selector = options.selector.join(', ');
@@ -69,6 +67,6 @@
   window[defaults.name] = PreRender;
 
   if (window.jQuery || window.$) {
-    window.jQuery[defaults.name] = PreRender;
+    window.jQuery[defaults.name.toLowerCase()] = PreRender;
   }
 })();
