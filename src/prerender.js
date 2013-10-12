@@ -7,14 +7,14 @@
 
   var defaults = {
     name: 'PreRender',
-    selector: ['a']
+    selector: ['body']
   };
 
 
   // There is some customization included:
-  // opts.selector: A String or an Array that includes selector(s) to select the DOM elements 
-  //                for which prerender.js will add the prerender link to the DOM.
-  //                These elements should have a href attribute that contains the link to prerender
+  // opts.selector: A String or an Array that includes selector(s) for which prerender.js will attach.
+  //                When prerender.js is attached to such an element it will listen for mousehovers on
+  //                the children and append a prerender link if the child has a href attribute.
 
   function PreRender(opts) {
     var _this = this;
@@ -30,12 +30,16 @@
     }
 
     var elements = document.querySelectorAll(options.selector);
+
     for (var i = 0; elements && i < elements.length; i++) {
-      var el = elements[i];
-      el.onmouseover = function() {
-        var href = this.getAttribute('href');
-        _this.prerender(href);
-      }
+      elements[i].onmouseover = function(e) {
+        var target = e.target || e.srcElement;
+        var href = target.getAttribute('href');
+
+        if (href) {
+          _this.prerender(href);
+        }
+      };
     }
   };
 
