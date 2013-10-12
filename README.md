@@ -5,6 +5,12 @@ prerender.js is a javascript plugin which uses the new prerender technique to te
 
 You can use this plugin with or without jQuery.
 
+##Documentation
+
+[https://developers.google.com/chrome/whitepapers/prerender](https://developers.google.com/chrome/whitepapers/prerender)
+
+[http://msdn.microsoft.com/en-us/library/ie/dn265039(v=vs.85).aspx](http://msdn.microsoft.com/en-us/library/ie/dn265039(v=vs.85\).aspx)
+
 ##General setup
 Copy the `prerender.js` from the `lib` folder to your web directory. And insert the following to load it.
 
