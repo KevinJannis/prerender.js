@@ -26,12 +26,19 @@
       linkId: defaults.name.toLowerCase()
     };
 
-    if (Array.isArray && Array.isArray(options.selector)
-       || options.selector instanceof Array) {
-      options.selector = options.selector.join(', ');
+    // Make it an array if a string is passed
+    if (Array.isArray && !Array.isArray(options.selector)
+       || !(options.selector instanceof Array)) {
+      options.selector = [options.selector];
     }
 
-    var elements = document.querySelectorAll(options.selector);
+    // Make it an array if a string is passed
+    if (Array.isArray && !Array.isArray(options.attributes)
+       || !(options.attributes instanceof Array)) {
+      options.attributes = [options.attributes];
+    }
+
+    var elements = document.querySelectorAll(options.selector.join(', '));
 
     for (var i = 0; elements && i < elements.length; i++) {
       elements[i].onmouseover = function(e) {
