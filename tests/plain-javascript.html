@@ -10,13 +10,14 @@
     </ul>
 
     <div id="container">
-      <p class="prerendered" href="sub/page-2.html" onClick="window.location.href='sub/page-2.html';">This is a paragraph with a href attribute.</p>
+      <p class="prerendered" data-href="sub/page-2.html" onClick="window.location.href='sub/page-2.html';">This is a paragraph with a href attribute.</p>
     </div>
 
     <script src="../lib/prerender.js"></script>
     <script>
       var opts = {
-        selector: ['#menu', '#container']
+        selector: ['#menu', '#container'],
+        attributes: ['href', 'data-href']
       };
       new PreRender(opts);
     </script>
