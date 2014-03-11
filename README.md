@@ -70,3 +70,6 @@ In order to prerender this example, use the following (avoid attribute selectors
     </script>
 
 Now whenever you add new elements with a `href` or `data-href` attribute, to `#menu` or `#container`, they will automatically be prerendered.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/KevinJannis/prerender.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
